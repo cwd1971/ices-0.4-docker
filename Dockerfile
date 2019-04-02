@@ -10,10 +10,12 @@ RUN yum -y update && yum -y install epel-release && yum -y install lame-devel li
 
 
 
-COPY ices-0.4 /tmp/
+COPY ices-0.4.tar /tmp/
 
 RUN     cd /tmp && \
-        /tmp/configure --prefix=/usr/local && \
+        tar xvf ices-0.4.tar && \
+        cd ices-0.4 && \
+        /tmp/ices-0.4/configure --prefix=/usr/local && \
         make && \
         make install && \
         chmod a+rw /usr/local/bin/ices && \

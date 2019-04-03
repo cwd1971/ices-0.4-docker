@@ -27,7 +27,6 @@ RUN     cd /tmp && \
 
 USER 1001
 COPY ices.conf /ices_conf/
-COPY Janji-Heroes_Tonight_feat.Johnning_NCS_Release.mp3 /music/
 COPY playlist.txt /ices_conf/
 VOLUME ["/music", "/ices_conf", "/log"]
 ENTRYPOINT ["/usr/local/bin/ices", "-c", "/ices_conf/ices.conf", "-F", "/ices_conf/playlist.txt"]

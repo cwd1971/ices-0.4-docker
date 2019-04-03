@@ -1,1 +1,3 @@
-/music/Janji-Heroes_Tonight_feat.Johnning_NCS_Release.mp3
+# all files should be prefixed with /music as this is the internal mountpoint in container.
+# Example:
+# /music/MyMusic.mp3

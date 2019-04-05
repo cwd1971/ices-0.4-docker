@@ -1,6 +1,3 @@
-#
-# Super simple example of a Dockerfile
-#
 FROM centos:latest
 MAINTAINER Cool Winky Doggendoodle "cool.docker@coolwinkydoggendoodle.com"
 # --add-host "cast_host:${CAST_HOST}"
@@ -10,12 +7,12 @@ RUN yum -y update && yum -y install epel-release && yum -y install lame-devel li
 
 
 
-COPY ices-0.4.tar /tmp/
+COPY ices0-master.tar /tmp/
 
 RUN     cd /tmp && \
-        tar xvf ices-0.4.tar && \
-        cd ices-0.4 && \
-        /tmp/ices-0.4/configure --prefix=/usr/local && \
+        tar xvf ices0-master.tar && \
+        cd ices0-master && \
+        /tmp/ices0-master/configure --prefix=/usr/local && \
         make && \
         make install && \
         chmod a+rw /usr/local/bin/ices && \
@@ -30,5 +27,3 @@ COPY ices.conf /ices_conf/
 COPY playlist.txt /ices_conf/
 VOLUME ["/music", "/ices_conf", "/log"]
 ENTRYPOINT ["/usr/local/bin/ices", "-c", "/ices_conf/ices.conf", "-F", "/ices_conf/playlist.txt"]
-
-

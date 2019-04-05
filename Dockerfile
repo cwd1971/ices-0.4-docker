@@ -2,7 +2,7 @@ FROM centos:latest
 MAINTAINER Cool Winky Doggendoodle "cool.docker@coolwinkydoggendoodle.com"
 # --add-host "cast_host:${CAST_HOST}"
 RUN yum -y update && yum -y install epel-release && yum -y install lame-devel libshout-devel flac-devel flac-libs perl-ExtUtils-Embed \
-                                    libxml2-devel libogg-devel libvorbis-devel python-devel gcc gcc-c++ make && \
+                                    libxml2-devel libogg-devel libvorbis-devel python-devel gcc gcc-c++ make file && \
                                     yum clean all 
 
 

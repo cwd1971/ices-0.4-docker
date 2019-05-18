@@ -41,3 +41,39 @@ docker run -d --name myices \
            docker.io/cwd1971/ices0.4
 ```
 If you volume mount a image with -v /SOURCE:/DESTINATION:z docker will automatically relabel the content for you to s0. If you volume mount with a Z, then the label will be specific to the container, and not be able to be shared between containers.
+
+---
+# Docker Compose YAML
+'''yml
+version: '3'
+services:
+  icecast:
+    environment:
+     - TZ=America/New_York
+    image: cwd1971/icecast
+    hostname: my.icecast 
+    restart: always
+    volumes:
+     - /docker_config/icecast/conf/icecast.xml:/etc/icecast/icecast.xml:z
+     - /docker_config/icecast/log/:/var/log/icecast/:z
+    ports:
+     - "8000:8000"
+     - "8001:8001"
+    extra_hosts:
+     - "icecast.cwd.com:4.4.4.4"
+     - "dir.xiph.org:140.211.15.194"
+  ices:
+    environment:
+     - TZ=America/New_York
+    image: cwd1971/ices0.4
+    hostname: my.ices
+    restart: always
+    volumes:
+     - /music/:/music/:z
+     - /docker_config/icecast/conf/:/ices_conf/:z
+     - /docker_config/icecast/log/:/log/:z
+    extra_hosts:
+     - "host.docker.internal:172.17.0.1"
+    depends_on:
+     - icecast
+'''

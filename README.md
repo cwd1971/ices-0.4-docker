@@ -44,7 +44,7 @@ If you volume mount a image with -v /SOURCE:/DESTINATION:z docker will automatic
 
 ---
 # Icecast Docker Compose YAML
-'''yml
+```
 version: '3'
 services:
   icecast:
@@ -76,9 +76,9 @@ services:
      - "host.docker.internal:172.17.0.1"
     depends_on:
      - icecast
-'''
+```
 # Shoutcast Docker Compose YAML
-'''yml
+```
 version: '3'
 services:
   shoutcast:
@@ -111,4 +111,4 @@ services:
      - "host.docker.internal:172.17.0.1"
     depends_on:
      - shoutcast
-'''
+```

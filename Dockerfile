@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7
 LABEL maintainer="cool.docker@coolwinkydoggendoodle.com"
 LABEL version="1.1"
 LABEL description="Image for ICES 0.4 based on https://github.com/eheikes/ices0 repo. \

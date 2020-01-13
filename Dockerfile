@@ -15,6 +15,7 @@ RUN yum -y update && yum -y install epel-release && yum -y install libmp4v2-deve
                                     yum clean all 
 COPY ices0-master.tar /tmp/
 
+
 RUN     cd /tmp && \
         tar xvf ices0-master.tar && \
         cd ices0-master && \
